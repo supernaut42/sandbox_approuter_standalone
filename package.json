@@ -19,7 +19,13 @@
     "start": "cds-serve"
   },
   "cds": {
-    "requires": {      
+    "requires": {
+      "[hybrid]": {
+        "auth": "xsuaa"
+      },
+      "[production]": {
+        "auth": "xsuaa"
+      }
     }
   }
 }
