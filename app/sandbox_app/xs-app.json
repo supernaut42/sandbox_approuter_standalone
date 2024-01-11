@@ -4,7 +4,7 @@
     "logoutEndpoint": "/app-logout",
     "logoutPage": "/"
   },
-  "welcomeFile": "app/index.html",
+  "welcomeFile": "app/webapp/index.html",
   "routes": [
     {
       "source": "^/app/(.*)$",
