@@ -1,7 +1,7 @@
 _schema-version: '3.1'
 ID: sandbox_approuter_standalone
 version: 1.0.0
-description: "Simple CAP with UI5 app to demonstrate standalone approuter deployment"
+description: "Sandbox for CAP app to be deployed as Standalone Approuter"
 parameters:
   enable-parallel-deployments: true
 build-parameters:
@@ -9,7 +9,6 @@ build-parameters:
     - builder: custom
       commands:
         - npx cds build --production
-  
 modules:
   - name: sandbox_approuter_standalone-srv
     type: nodejs
@@ -17,7 +16,6 @@ modules:
     parameters:
       buildpack: nodejs_buildpack
     build-parameters:
-      ignore: ["node_modules/"]    
       builder: npm
     provides:
       - name: srv-api # required by consumers of CAP services (e.g. approuter)
@@ -28,11 +26,11 @@ modules:
 
   - name: sandbox_approuter_standalone
     type: approuter.nodejs
-    path: app/sandbox_app
+    path: app/
     parameters:
       keep-existing-routes: true
-      disk-quota: 512M
-      memory: 512M
+      disk-quota: 256M
+      memory: 256M
     requires:
       - name: srv-api
         group: destinations
@@ -53,8 +51,8 @@ resources:
         xsappname: sandbox_approuter_standalone-${space}
         tenant-mode: dedicated
         role-collections:
-        - name: "SandboxApprouterStandalone-${space}"
-          description: Dummy role collection for sandbox CAP and App
-          role-template-references:
-            - $XSAPPNAME.SandboxMember
-            - $XSAPPNAME.SandboxAdmin
+          - name: "sandbox_approuter_standalone-${space}"
+            description: Dummy role collection for sandbox CAP and App
+            role-template-references:
+              - $XSAPPNAME.SandboxMember
+              - $XSAPPNAME.SandboxAdmin

@@ -1,8 +1,8 @@
 {
-  "name": "sandbox_cap_app",
+  "name": "sandbox_approuter_standalone",
   "version": "1.0.0",
-  "description": "A simple CAP project.",
-  "repository": "<Add your repository here>",
+  "description": "Sandbox for CAP app to be deployed as Standalone Approuter",
+  "repository": "https://github.com/supernaut42/sandbox_approuter_standalone",
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {

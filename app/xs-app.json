@@ -1,16 +1,18 @@
 {
+  "welcomeFile": "/app/sandbox_app/webapp/index.html",
   "authenticationMethod": "route",
   "logout": {
     "logoutEndpoint": "/app-logout",
     "logoutPage": "/"
   },
-  "welcomeFile": "app/webapp/index.html",
   "routes": [
     {
       "source": "^/app/(.*)$",
       "target": "$1",
       "localDir": ".",
-      "cacheControl": "no-cache, no-store, must-revalidate"
+      "cacheControl": "no-cache, no-store, must-revalidate",
+      "authenticationType": "xsuaa",
+      "scope": ["$XSAPPNAME.SandboxMember", "$XSAPPNAME.SandboxAdmin"]       
     },
     {
       "source": "^/appconfig/",
